@@ -55,7 +55,10 @@ IoT 개발자 데이터베이스 저장소
         ```shell
         > docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=12345 -d -p 3306:3306 mysql:latest
         ```
-
+        - 컴퓨터 재시작후 컨테이너 자동시작 옵션 명령어
+        ```shell
+        > docker update --restart=always mysql-container
+        ```
     5. 컨테이너 확인
         ```shell
         > docker ps -a
@@ -354,23 +357,33 @@ IoT 개발자 데이터베이스 저장소
         - 제3정규화 - 이행적 종속이 발생하지 않도록 정규화
         - BCNF정규화 - 함수종속성 A → B가 성립시 모든 결정자 A가 후보키가 되는 정규화
         - 제4정규화 - 실무에서 사용 안 함. 다치종속성 릴레이션 가진 정규화
-        - 제5정규화 - 실문에서 사용 안 함. 프로젝트-조인 정규형. 조인종속성을 가진 릴레이션
+        - 제5정규화 - 실무에서 사용 안 함. 프로젝트-조인 정규형. 조인종속성을 가진 릴레이션
 - 트랜잭션 : [SQL](./day06/db05_transaction2.sql)
     - 데이터를 다루는 논리적인 작업단위
     - SRART TRANSACTION, SAVEPOINT, ROLLBACK [TO SAVEPOINT], COMMIT 트랜잭션 처리
     - 특징
-        - A - 원자성
-        - C - 일관성
-        - I - 고립성
-        - D - 지속성
+        - A(원자성) - Atomicity, 원자처럼 쪼개지지 않고 한 덩어리로 취급, All or Nothing.
+        - C(일관성) - Consistency, 트랜잭션 전후의 데이터가 일관되게 저장되어 있어야 함.
+        - I(고립성) - Isolation, 트랜잭션이 발생할 동안 다른 트랜잭션이 값을 수정하지 못하게 막음.
+        - D(지속성) - Durability, 트랜잭션 후에 저장된 데이터는 무한히 값이 유지되어야 함.
     - 동시성 제어 : [SQL1](./day06/db9_concurrency_control.sql) / [SQL2](./day06/db10_concurrency_control.sql)
         - 락
 
 ## 7일차
-- 데이터베이스 관리와 보안
-- 실무실습
-- Python GUI로 DB연동 앱 개발
+- 인덱스 실습 : [SQL](./day07/db01_index.sql)
+    - 500만건 조회시 price로 검색
+        - 인덱스가 없으면 0.67초 소요
+        - 인덱스를 걸면 0.06초 소요
+
+- 데이터베이스 관리와 보안 : [SQL](./day07/db02_데이터베이스관리.sql)
+- 실무실습 : [SQL](./day07/db03_쿼리연습.sql)
+    - 서브쿼리까지
 
 ## 8일차
+- 실무실습 : []()
+    - 서브쿼리부터
+- 데이터모델링 실습
+- 파이썬 GUI DB연동
 
 ## 9일차
+- 코딩테스트
