@@ -1,17 +1,18 @@
 -- WorkBook : SQL Practice
-/* toavmf - Employee에서 사원번호, 이름, 급여, 업무, 입사일, 상사의 사원번호를 출력하시오.
-			이 때 이름과 성을 연결하여 Full Name이라는 별칠으로 출력하시리 (107행)
+/* 샘플 - Employee에서 사원번호, 이름, 급여, 업무, 입사일, 상사의 사원번호를 출력하시오.
+          이때 이름과 성을 연결하여 Full Name이라는 별칭으로 출력하시오. (107행)
 */
-
-/*
 SELECT employee_id
-	 , CONCAT(first_name, ' ', last_name) AS 'Name'
-     , job_id AS 'Job'
-     , hire_data
-     , manahar_id
-     from employees;
- */    
-/* 문제1 employee레ㅛㅏ */
+	 , CONCAT(first_name, ' ', last_name) AS 'Full Name'
+    	 , salary
+     	, job_id
+     	, hire_date
+     	, manager_id
+  FROM employees;
+ 
+/* 문제1 - employee 에서 사원의 성과 이름을 Name, 업무는 Job, 급여는 Salary, 연봉에 $100 보너스를 추가해서 계산한 Increased Ann_Salary
+			급여에 $100 보너스를 추가해서 Increased Salary 별칭으로 출력하시오.(107행)
+*/
 SELECT CONCAT(first_name, ' ', last_name) AS 'Name'
 	 , job_id AS 'Job'
      , salary AS 'Salary'
